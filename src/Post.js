@@ -28,9 +28,9 @@ function MenuPost(props){
     </div>
 
     <div class="curtidas">
-      <img src="assets/img/respondeai.svg" />
+      <img src={props.img3} />
       <div class="texto">
-        Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+        Curtido por <strong>{props.nome2}</strong> e <strong>outras 101.523 pessoas</strong>
       </div>
     </div>
   </div>
@@ -39,8 +39,10 @@ function MenuPost(props){
 }
 
 const posts = [
-  {img:"assets/img/meowed.svg", nome:"meowed", img2:"assets/img/gato-telefone.svg"},
-  {img:"assets/img/barked.svg", nome:"barked", img2:"assets/img/dog.svg"}
+  {img:"assets/img/meowed.svg", nome:"meowed", img2:"assets/img/gato-telefone.svg",
+   img3:"assets/img/respondeai.svg", nome2:"respondeai"},
+  {img:"assets/img/barked.svg", nome:"barked", img2:"assets/img/dog.svg",
+    img3:"assets/img/adorable_animals.svg", nome2:"adorable_animals"}
 ]
 
 export default function Post(){
@@ -48,7 +50,7 @@ export default function Post(){
         <div class="posts">
            {
            posts.map(posts =>
-            <MenuPost img={posts.img} nome={posts.nome}  img2={posts.img2}/>
+            <MenuPost img={posts.img} nome={posts.nome}  img2={posts.img2} img3={posts.img3} nome2={posts.nome2}/>
            )
 
            }
