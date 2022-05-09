@@ -1,4 +1,18 @@
+import React from "react"
 function MenuPost(props){
+
+const [name, setName] = React.useState("heart-outline")
+
+  function imgclick(photo){
+    if(photo === "photo"){
+      setName("heart")}
+    }
+    
+    function deslike(heart){
+      if(heart === "heart"){
+        setName("heart-outline")}
+      }
+
  return(
   <div class="post">
   <div class="topo">
@@ -11,14 +25,14 @@ function MenuPost(props){
     </div>
   </div>
 
-  <div class="conteudo">
-    <img src={props.img2} />
+  <div class="conteudo" onClick={() => imgclick("photo") } >
+    <img src={props.img2}/>
   </div>
 
   <div class="fundo">
     <div class="acoes">
       <div>
-        <ion-icon name="heart-outline"></ion-icon>
+        <ion-icon onClick={() => deslike("heart")} name={name}></ion-icon>
         <ion-icon name="chatbubble-outline"></ion-icon>
         <ion-icon name="paper-plane-outline"></ion-icon>
       </div>
@@ -46,13 +60,12 @@ const posts = [
 ]
 
 export default function Post(){
-    return (
+  return (
         <div class="posts">
            {
            posts.map(posts =>
             <MenuPost img={posts.img} nome={posts.nome}  img2={posts.img2} img3={posts.img3} nome2={posts.nome2}/>
            )
-
            }
           </div>
     )
